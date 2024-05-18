@@ -18,7 +18,8 @@ interface API_Builder {
         @Field("address") address : String,
         @Field("email") email: String,
         @Field("phone") phone : String,
-        @Field("pincode") pincode : String
+        @Field("pincode") pinCode : String
+        
     ) : UserCreateResponse
 
     companion object{
