@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.company.medicareapp.API.CreateUserRepoImpl
 import com.company.medicareapp.API.RetrofitInstance
 import com.company.medicareapp.Screens.LoginPagePage.LoginPage
 import com.company.medicareapp.Screens.SignUpPage.SignUpPage
@@ -22,20 +23,19 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+   private  lateinit var createUserRepoImpl: CreateUserRepoImpl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        createUserRepoImpl = CreateUserRepoImpl(RetrofitInstance.api)
         setContent {
             MediCareAppTheme {
-//                Scaffold { innerpadding ->
-////                        SignUpPage()
-////                    LoginPage()
-//                }
+                Scaffold { innerpadding ->
+                        SignUpPage()
+
+                }
             }
 
-        }
-        GlobalScope.launch {
-            Log.d("userData","${RetrofitInstance.api.UserInfo()}")
         }
     }
 }
