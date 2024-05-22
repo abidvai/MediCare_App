@@ -99,8 +99,7 @@ fun SignUpPage() {
             leadingIcon = {
                 Icon(imageVector = Icons.Filled.AccountCircle, contentDescription = "")
             },
-            singleLine = true,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            singleLine = true
         )
         Spacer(modifier = Modifier.height(10.dp))
 
@@ -170,7 +169,8 @@ fun SignUpPage() {
             leadingIcon = {
                 Icon(imageVector = Icons.Filled.Star, contentDescription = "")
             },
-            singleLine = true
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
         Spacer(modifier = Modifier.height(10.dp))
 

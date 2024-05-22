@@ -34,6 +34,9 @@ class MainActivity : ComponentActivity() {
                         SignUpPage()
 
                 }
+                GlobalScope.launch {
+                    Log.d("User_data","${RetrofitInstance.api.UserInfo()}")
+                }
             }
 
         }
