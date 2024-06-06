@@ -261,7 +261,7 @@ fun SignUpPage(navController: NavHostController, viewModel: SignUpPageViewModel)
         }
 
         State.SUCCESS.name -> {
-            SuccessScreen()
+            SuccessScreen(navController)
         }
     }
 }

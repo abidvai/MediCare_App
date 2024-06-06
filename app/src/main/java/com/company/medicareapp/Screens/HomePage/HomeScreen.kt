@@ -57,6 +57,16 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
                     )
                 }
             }
+            Box(modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center){
+                Column(horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center) {
+                    Icon(imageVector = Icons.Filled.Person, contentDescription = "person")
+                    Text(text = "Show Users", fontSize = 16.sp,
+                        fontWeight = FontWeight.ExtraBold
+                    )
+                }
+            }
         }
     }
 }

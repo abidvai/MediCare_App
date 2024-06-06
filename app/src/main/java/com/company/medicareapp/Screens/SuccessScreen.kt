@@ -29,9 +29,9 @@ import com.company.medicareapp.R
 import com.company.medicareapp.ui.theme.CloudyGrayFont
 import com.company.medicareapp.ui.theme.RainyBlueBackground
 
-@Preview(showBackground = true, showSystemUi = true)
+
 @Composable
-fun SuccessScreen(navController: NavHostController = rememberNavController()) {
+fun SuccessScreen(navController: NavHostController) {
 
     Column(
         modifier = Modifier

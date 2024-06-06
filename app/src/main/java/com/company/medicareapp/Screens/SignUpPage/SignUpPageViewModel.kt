@@ -2,6 +2,7 @@ package com.company.medicareapp.Screens.SignUpPage
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.company.medicareapp.API.RetrofitInstance
 import com.company.medicareapp.API.State
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -17,7 +18,6 @@ class SignUpPageViewModel: ViewModel() {
         state.value = State.DEFAULT.name
     }
 
-    @OptIn(DelicateCoroutinesApi::class)
     fun GetUsers(
         name: String,
         password: String,
@@ -27,7 +27,7 @@ class SignUpPageViewModel: ViewModel() {
         pincode: String
     ) {
         state.value = State.LOADING.name
-        GlobalScope.launch {
+        viewModelScope.launch {
             val result = RetrofitInstance.api.createUser(name, password, address, email, phone, pincode)
             if(result.isSuccessful){
                 if(result.body()?.success == 200){
