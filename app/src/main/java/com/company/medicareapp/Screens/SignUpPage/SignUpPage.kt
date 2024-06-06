@@ -1,5 +1,6 @@
 package com.company.medicareapp.Screens.SignUpPage
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -35,6 +36,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -63,6 +65,8 @@ fun SignUpPage(navController: NavHostController, viewModel: SignUpPageViewModel)
             var userAddress by rememberSaveable { mutableStateOf("") }
             var userPincode by rememberSaveable { mutableStateOf("") }
             var userPassword by rememberSaveable { mutableStateOf("") }
+
+            val context = LocalContext.current
 
             Column(
                 modifier = Modifier
@@ -211,13 +215,18 @@ fun SignUpPage(navController: NavHostController, viewModel: SignUpPageViewModel)
 
                 Button(
                     onClick = {
-                              viewModel.GetUsers(name = userName,
-                                  password = userPassword,
-                                  address = userAddress,
-                                  email = userEmail,
-                                  phone = userPhoneNo,
-                                  pincode = userPincode
+                              if(userName.isNotEmpty() && userEmail.isNotEmpty() && userPhoneNo.isNotEmpty() && userAddress.isNotEmpty() && userPincode.isNotEmpty() && userPassword.isNotEmpty()){
+                                  viewModel.GetUsers(name = userName,
+                                      password = userPassword,
+                                      address = userAddress,
+                                      email = userEmail,
+                                      phone = userPhoneNo,
+                                      pincode = userPincode
                                   )
+                              }
+                        else{
+                            Toast.makeText(context, "Check All Field are Filled", Toast.LENGTH_SHORT).show()
+                        }
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.LightGray,
@@ -257,7 +266,7 @@ fun SignUpPage(navController: NavHostController, viewModel: SignUpPageViewModel)
         }
 
         State.FAILED.name -> {
-            FailedScreen()
+            FailedScreen(navController)
         }
 
         State.SUCCESS.name -> {

@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 interface API_Builder {
 
-    @GET("/getAllusers")
+    @GET("/getAllUsers")
     suspend fun UserInfo() : UserInfo
 
     @FormUrlEncoded

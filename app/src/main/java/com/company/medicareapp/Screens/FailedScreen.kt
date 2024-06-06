@@ -26,15 +26,16 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.company.medicareapp.Navigation.Routes
+import com.company.medicareapp.ui.theme.Pink80
 import com.company.medicareapp.ui.theme.RainyGrayFont
 
-@Preview(showBackground = true)
+
 @Composable
-fun FailedScreen(navController: NavHostController = rememberNavController()) {
+fun FailedScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(RainyGrayFont),
+            .background(Pink80),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

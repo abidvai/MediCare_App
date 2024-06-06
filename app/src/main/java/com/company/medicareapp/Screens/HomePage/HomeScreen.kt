@@ -27,9 +27,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.company.medicareapp.ui.theme.RainyBlueBackground
 
-@Preview(showBackground = true, showSystemUi = true)
+
 @Composable
-fun HomeScreen(navController: NavHostController = rememberNavController()) {
+fun HomeScreen(navController: NavHostController) {
     Box(modifier = Modifier
         .fillMaxSize()
         .background(RainyBlueBackground)
