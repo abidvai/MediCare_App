@@ -8,7 +8,7 @@ object RetrofitInstance {
 
     val client:OkHttpClient = OkHttpClient.Builder().build()
 
-    val api = Retrofit.Builder()
+    val api:API_Builder = Retrofit.Builder()
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(API_Builder.BASE_URL).build()

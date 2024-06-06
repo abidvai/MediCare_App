@@ -2,6 +2,7 @@ package com.company.medicareapp.Screens.LoginPagePage
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,23 +28,24 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.company.medicareapp.Navigation.Routes
 import com.company.medicareapp.R
 import com.company.medicareapp.ui.theme.bgcolor
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun LoginPage() {
+fun LoginPage(navController: NavHostController = rememberNavController()) {
     var userEmail by remember {
         mutableStateOf("")
     }
@@ -139,7 +141,10 @@ fun LoginPage() {
                 Text(text = "Sign Up",
                     color = Color.Blue,
                     textDecoration = TextDecoration.Underline,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.clickable {
+                        navController.navigate(Routes.SignUp.name)
+                    }
                     )
             }
 

@@ -1,5 +1,6 @@
 package com.company.medicareapp.API
 
+import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -20,7 +21,7 @@ interface API_Builder {
         @Field("phone") phone : String,
         @Field("pincode") pinCode : String
         
-    ) : UserCreateResponse
+    ) : Response<UserCreateResponse>
 
     companion object{
        const val BASE_URL = "https://abid1660.pythonanywhere.com"
