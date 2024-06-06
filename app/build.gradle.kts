@@ -72,5 +72,4 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:2.8.0-alpha01")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0")
 }
